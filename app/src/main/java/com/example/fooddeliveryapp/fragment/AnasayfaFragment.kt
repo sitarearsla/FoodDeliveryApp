@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.observe
 import androidx.navigation.Navigation
 import com.example.fooddeliveryapp.R
 import com.example.fooddeliveryapp.adapter.YemeklerAdapter
@@ -30,10 +31,10 @@ class AnasayfaFragment : Fragment(){
         (activity as AppCompatActivity).setSupportActionBar(tasarim.toolbarAnasayfa)
 
         //this Activity için ,viewLifecycleOwner Fragment için
-        viewModel.yemeklerListesi.observe(viewLifecycleOwner, { yemeklerListesi ->
-            adapter = YemeklerAdapter(requireContext(), yemeklerListesi,viewModel)
-            tasarim.yemeklerAdapter = adapter
-        })
+       viewModel.yemeklerListesi.observe(viewLifecycleOwner,{liste->
+           adapter= YemeklerAdapter(requireContext(),liste,viewModel)
+           tasarim.yemeklerAdapter=adapter
+       })
 
         return tasarim.root
 

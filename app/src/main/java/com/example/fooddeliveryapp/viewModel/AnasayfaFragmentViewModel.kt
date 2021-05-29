@@ -1,5 +1,6 @@
 package com.example.fooddeliveryapp.viewModel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.fooddeliveryapp.entity.Yemekler
@@ -10,8 +11,10 @@ class AnasayfaFragmentViewModel : ViewModel() {
     private val ydaor = YemeklerDaoRepository()
 
     init {
+
         yemekleriYukle()
         yemeklerListesi = ydaor.yemekleriGetir()
+        Log.e("yemekler",yemeklerListesi.toString())
 
     }
 
