@@ -1,4 +1,4 @@
-package com.sitare.fooddeliveryapp
+package com.example.fooddeliveryapp
 
 import org.junit.Test
 
